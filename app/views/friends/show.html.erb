@@ -1,0 +1,17 @@
+<div class="border p-4 rounded bg-secondary">
+  <div class="card bg-dark text-white">
+    <div class="card-body">
+      <p class="card-text lead"><%= @friend.first_name %> <%= @friend.last_name %></p>
+      <p class="card-text my-4"><%= @friend.email %> | <%= @friend.phone %> | <%= @friend.twitter %></p>
+    </div>
+  </div>
+
+
+  <div class="d-flex flex-row justify-content-center m-1">
+    <%= link_to "Edit this friend", edit_friend_path(@friend), class:'btn btn-primary m-1'%> <br>
+    <%= link_to "Back to friends", friends_path, class:'btn btn-secondary btn-dark m-1'%><br>
+    <%= button_to "Delete this friend", @friend, method: :delete, class:'btn btn-danger m-1' %>
+  </div>
+</div>
+
+

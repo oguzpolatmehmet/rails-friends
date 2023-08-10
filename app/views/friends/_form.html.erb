@@ -1,0 +1,50 @@
+<div class="d-flex justify-content-center align-items-center">
+  <%= form_with(model: friend) do |form| %>
+    <% if friend.errors.any? %>
+      <div style="color: red">
+        <h2><%= pluralize(friend.errors.count, "error") %> prohibited this friend from being saved:</h2>
+
+        <ul>
+          <% friend.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="d-flex flex-column align-items-center">
+      <%= form.label :first_name, style: "display: block" %>
+      <%= form.text_field :first_name, placeholder: 'First Name', class:"form-control text-center"%>
+    </div>
+
+    <div class="d-flex flex-column align-items-center">
+      <%= form.label :last_name, style: "display: block" %>
+      <%= form.text_field :last_name, placeholder: 'Last Name', class:"form-control text-center" %>
+    </div>
+
+    <div class="d-flex flex-column align-items-center">
+      <%= form.label :email, style: "display: block" %>
+      <%= form.text_field :email, placeholder: 'example@gmail.com', class:"form-control text-center"%>
+    </div>
+
+    <div class="d-flex flex-column align-items-center">
+      <%= form.label :phone, style: "display: block" %>
+      <%= form.text_field :phone, placeholder: 'xxxx xxx xxxx', class:"form-control text-center" %>
+    </div>
+
+    <div class="d-flex flex-column align-items-center">
+      <%= form.label :twitter, style: "display: block" %>
+      <%= form.text_field :twitter, placeholder: '@exampleid', class:"form-control text-center" %>
+    </div>
+
+    <div class="d-flex flex-column align-items-center">
+      <%= form.label :twitter, style: "display: block" %>
+      <%= form.number_field :user_id, value: current_user.id, id: :friend_user_id, class:"form-control text-center", type: :hidden %>
+    </div>
+
+    <div class="d-flex align-items-center justify-content-center mt-3">
+      <%= form.submit class:"btn btn-success mb-4"%>
+    </div>
+  <% end %>
+
+</div>
